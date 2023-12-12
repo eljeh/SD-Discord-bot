@@ -1,0 +1,366 @@
+import 'dotenv/config';
+import { REST, Routes, ApplicationCommandOptionType } from 'discord.js';
+
+const registerSlashCommands = async () => {
+	const commands = [
+		{
+			name: 'car-count',
+			description: 'Input the vehicle list copy from the game, returns the count of each vehicle type',
+		},
+		{
+			name: 'send-lottery_pack',
+			description: 'lottery_pack',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "lostedendonatoreggpack", "value": "lostedendonatoreggpack" },
+						{ "name": "xduhsee-donator-lotto-pack", "value": "xduhsee-donator-lotto-pack" },
+						{ "name": "killer-krixi-donator-lotto-pack", "value": "killer-krixi-donator-lotto-pack" },
+						{ "name": "poonani-donator-lotto-pack", "value": "poonani-donator-lotto-pack" },
+						{ "name": "stryker99-fishing-lotto-pack", "value": "stryker99-fishing-lotto-pack" },
+						{ "name": "nicklasbkp-donator-pack", "value": "nicklasbkp-donator-pack" },
+						{ "name": "wisdom-andy-donator-lotto-pack", "value": "wisdom-andy-donator-lotto-pack" },
+						{ "name": "cut-rate-crew-donator-lotto-pack", "value": "cut-rate-crew-donator-lotto-pack" },
+						{ "name": "usagi-donator-lottopack", "value": "usagi-donator-lottopack" },
+						{ "name": "shackpack-donator-lottopack", "value": "shackpack-donator-lottopack" },
+						{ "name": "twiztedpack", "value": "twiztedpack" },
+						{ "name": "bombthatbigmac-lottopack", "value": "bombthatbigmac-lottopack" },
+						{ "name": "cjgomer-donator-lottopack", "value": "cjgomer-donator-lottopack" },
+						{ "name": "franks-donator-lottopack", "value": "franks-donator-lottopack" },
+						{ "name": "420partypack", "value": "420partypack" },
+						{ "name": "plumbus-donator-lottopack", "value": "plumbus-donator-lottopack" },
+						{ "name": "b17gunner98th-donator-lotto1", "value": "b17gunner98th-donator-lotto1" },
+						{ "name": "hannahslotto", "value": "hannahslotto" },
+						{ "name": "the_krampus_pack", "value": "the_krampus_pack" },
+						{ "name": "the_rath_pack", "value": "the_rath_pack" },
+						{ "name": "iykyk", "value": "iykyk" },
+						{ "name": "fixyourshit", "value": "fixyourshit" },
+						{ "name": "fanboypack", "value": "fanboypack" },
+						{ "name": "party_pack", "value": "party_pack" },
+						{ "name": "not_quite_a_doctor_pack", "value": "not_quite_a_doctor_pack" }
+
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-lottery_packs2',
+			description: 'lottery_packs2',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "unlockit", "value": "unlockit" },
+						{ "name": "moneymoneymoney!!!", "value": "moneymoneymoney!!!" },
+						{ "name": "lockitup", "value": "lockitup" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-tools_packs',
+			description: 'tools_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "boltspack", "value": "boltspack" },
+						{ "name": "nailspack", "value": "nailspack" },
+						{ "name": "toolboxpack", "value": "toolboxpack" },
+						{ "name": "crowbarpack", "value": "crowbarpack" },
+						{ "name": "shovelpack", "value": "shovelpack" },
+						{ "name": "axepack", "value": "axepack" },
+						{ "name": "autorepair", "value": "autorepair" },
+						{ "name": "lumberjackpack", "value": "lumberjackpack" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-materials_packs',
+			description: 'materials_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "tools", "value": "tools" },
+						{ "name": "flag", "value": "flag" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-weapons_packs',
+			description: 'weapons_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "9mmpack", "value": "9mmpack" },
+						{ "name": "improvisedriflerail", "value": "improvisedriflerail" },
+						{ "name": "45ammo", "value": "45ammo" },
+						{ "name": "hoboshotgunpack", "value": "hoboshotgunpack" },
+						{ "name": "hobopistolpack", "value": "hobopistolpack" },
+						{ "name": "357pack", "value": "357pack" },
+						{ "name": "weaponrepairpack", "value": "weaponrepairpack" },
+						{ "name": "andyarcherpack", "value": "andyarcherpack" },
+						{ "name": "nicklasbkpcrossbow", "value": "nicklasbkpcrossbow" },
+						{ "name": "sdasspack", "value": "sdasspack" },
+						{ "name": "blackcat", "value": "blackcat" },
+						{ "name": "dikarwolfvintageww2pack", "value": "dikarwolfvintageww2pack" },
+						{ "name": "svdpack", "value": "svdpack" },
+						{ "name": "m82pack", "value": "m82pack" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-vehicle_packs',
+			description: 'vehicle_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "carcash", "value": "carcash" },
+						{ "name": "bikecash", "value": "bikecash" },
+						{ "name": "bicyclecash", "value": "bicyclecash" },
+						{ "name": "boatcash", "value": "boatcash" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-survivalgear_packs',
+			description: 'survivalgear_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "heavy", "value": "heavy" },
+						{ "name": "medium", "value": "medium" },
+						{ "name": "light", "value": "light" },
+						{ "name": "welcomepack2", "value": "welcomepack2" },
+						{ "name": "compasspack", "value": "compasspack" },
+						{ "name": "fannypack", "value": "fannypack" },
+						{ "name": "grindingstone", "value": "grindingstone" },
+						{ "name": "metalchest", "value": "metalchest" },
+						{ "name": "hikingboots", "value": "hikingboots" },
+						{ "name": "assaultbackpack", "value": "assaultbackpack" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-meds_packs',
+			description: 'meds_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "antibiotics", "value": "antibiotics" },
+						{ "name": "tourniquetpack", "value": "tourniquetpack" },
+						{ "name": "ebpack1", "value": "ebpack1" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-food_packs',
+			description: 'food_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "bakerpack", "value": "bakerpack" },
+						{ "name": "cheeseburgerpack", "value": "cheeseburgerpack" },
+						{ "name": "tunasaladpack", "value": "tunasaladpack" },
+						{ "name": "beefstewpack", "value": "beefstewpack" },
+						{ "name": "waterpack", "value": "waterpack" },
+						{ "name": "mrepack", "value": "mrepack" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-daily_packs',
+			description: 'daily_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "dailyfoodandwater", "value": "dailyfoodandwater" },
+						{ "name": "daily1", "value": "daily1" },
+						{ "name": "daily2", "value": "daily2" },
+						{ "name": "daily3", "value": "daily3" },
+						{ "name": "daily4", "value": "daily4" },
+						{ "name": "daily5", "value": "daily5" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-crafting-adminsonly',
+			description: 'send-crafting-adminsonly',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "basiclock", "value": "basiclock" },
+						{ "name": "welcomepack_copy", "value": "welcomepack_copy" },
+						{ "name": "welcomepack", "value": "welcomepack" },
+						{ "name": "bed", "value": "bed" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		{
+			name: 'send-bigspender',
+			description: 'send-bigspender',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "cursedpuppetsuit", "value": "cursedpuppetsuit" },
+						{ "name": "cargodrop", "value": "cargodrop" }
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+	];
+
+	const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
+
+	try {
+		console.log('Registering slash commands');
+		await rest.put(
+			Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
+			{ body: commands }
+		);
+		console.log('Slash commands registered successfully!');
+	} catch (error) {
+		console.error(`Error registering slash commands: ${error.message}`);
+	}
+};
+
+registerSlashCommands();

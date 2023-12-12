@@ -1,0 +1,113 @@
+{
+	"lottery_packs": [
+		"lostedendonatoreggpack",
+		"xduhsee-donator-lotto-pack",
+		"killer-krixi-donator-lotto-pack",
+		"poonani-donator-lotto-pack",
+		"stryker99-fishing-lotto-pack",
+		"nicklasbkp-donator-pack",
+		"wisdom-andy-donator-lotto-pack",
+		"cut-rate-crew-donator-lotto-pack",
+		"usagi-donator-lottopack",
+		"shackpack-donator-lottopack",
+		"twiztedpack",
+		"bombthatbigmac-lottopack",
+		"cjgomer-donator-lottopack",
+		"franks-donator-lottopack",
+		"420partypack",
+		"plumbus-donator-lottopack",
+		"b17gunner98th-donator-lotto1"
+	],
+	"lottery_packs2": [
+		"hannahslotto",
+		"the_krampus_pack",
+		"iykyk",
+		"fixyourshit",
+		"fanboypack",
+		"party_pack",
+		"not_quite_a_doctor_pack",
+		"the_rath_pack",
+		"unlockit",
+		"moneymoneymoney!!!",
+		"lockitup"
+	],
+	"tools_packs": [
+		"boltspack",
+		"nailspack",
+		"toolboxpack",
+		"crowbarpack",
+		"shovelpack",
+		"axepack",
+		"autorepair",
+		"lumberjackpack"
+	],
+	"materials": [
+		"tools",
+		"flag"
+	],
+	"weapons": [
+		"9mmpack",
+		"improvisedriflerail",
+		"45ammo",
+		"hoboshotgunpack",
+		"hobopistolpack",
+		"357pack",
+		"weaponrepairpack",
+		"andyarcherpack",
+		"nicklasbkpcrossbow",
+		"sdasspack",
+		"blackcat",
+		"dikarwolfvintageww2pack",
+		"svdpack",
+		"m82pack"
+	],
+	"vehicle_packs": [
+		"carcash",
+		"bikecash",
+		"bicyclecash",
+		"boatcash"
+	],
+	"survivalgear": [
+		"heavy",
+		"medium",
+		"light",
+		"welcomepack2",
+		"compasspack",
+		"fannypack",
+		"grindingstone",
+		"metalchest",
+		"hikingboots",
+		"assaultbackpack"
+	],
+	"meds": [
+		"antibiotics",
+		"tourniquetpack",
+		"ebpack1"
+	],
+	"food": [
+		"bakerpack",
+		"cheeseburgerpack",
+		"tunasaladpack",
+		"beefstewpack",
+		"waterpack",
+		"mrepack"
+	],
+	"dailypacks": [
+		"dailyfoodandwater",
+		"daily1",
+		"daily2",
+		"daily3",
+		"daily4",
+		"daily5"
+	],
+	"crafting-adminsonly": [
+		"basiclock",
+		"welcomepack_copy",
+		"welcomepack",
+		"bed"
+	],
+	"bigspender": [
+		"cursedpuppetsuit",
+		"cargodrop"
+	]
+}
