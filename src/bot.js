@@ -3,8 +3,6 @@ import 'dotenv/config';
 import { Partials, Client, GatewayIntentBits, Events } from 'discord.js';
 import fetch from 'node-fetch';
 
-
-
 // Create a new Discord client instance
 const client = new Client({
     partials: [Partials.Channel, Partials.Message],
@@ -20,8 +18,6 @@ const client = new Client({
         GatewayIntentBits.DirectMessageTyping
     ]
 });
-
-
 
 // Log in to Discord using the provided BOT_TOKEN
 client.login(process.env.BOT_TOKEN);
@@ -92,7 +88,10 @@ client.on('interactionCreate', async (interaction) => {
         interaction.commandName === 'send-food_packs' ||
         interaction.commandName === 'send-daily_packs' ||
         interaction.commandName === 'send-crafting-adminsonly' ||
-        interaction.commandName === 'send-bigspender'
+        interaction.commandName === 'send-bigspender' ||
+        interaction.commandName === 'send-raid_packs' ||
+        interaction.commandName === 'send-vote_packs' ||
+        interaction.commandName === 'send-admin_packs'
     ) {
         const packName = options.getString('packname');
         const discordID = options.getString('discord-id');
@@ -105,7 +104,7 @@ client.on('interactionCreate', async (interaction) => {
         }
 
         // Check if the channel name is 'outhouse'
-        const channelName = 'outhouse';
+        const channelName = process.env.CHANNEL_NAME;
         const outhouseChannel = interaction.guild.channels.cache.find((channel) => channel.name === channelName);
 
         if (outhouseChannel) {

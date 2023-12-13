@@ -3,10 +3,12 @@ import { REST, Routes, ApplicationCommandOptionType } from 'discord.js';
 
 const registerSlashCommands = async () => {
 	const commands = [
+		//car-count
 		{
 			name: 'car-count',
 			description: 'Input the vehicle list copy from the game, returns the count of each vehicle type',
 		},
+		// send-lottery_pack
 		{
 			name: 'send-lottery_pack',
 			description: 'lottery_pack',
@@ -34,7 +36,7 @@ const registerSlashCommands = async () => {
 						{ "name": "franks-donator-lottopack", "value": "franks-donator-lottopack" },
 						{ "name": "420partypack", "value": "420partypack" },
 						{ "name": "plumbus-donator-lottopack", "value": "plumbus-donator-lottopack" },
-						{ "name": "b17gunner98th-donator-lotto1", "value": "b17gunner98th-donator-lotto1" },
+						{ "name": "b17gunner98th-donator-lotto", "value": "b17gunner98th-donator-lotto1" },
 						{ "name": "hannahslotto", "value": "hannahslotto" },
 						{ "name": "the_krampus_pack", "value": "the_krampus_pack" },
 						{ "name": "the_rath_pack", "value": "the_rath_pack" },
@@ -43,7 +45,6 @@ const registerSlashCommands = async () => {
 						{ "name": "fanboypack", "value": "fanboypack" },
 						{ "name": "party_pack", "value": "party_pack" },
 						{ "name": "not_quite_a_doctor_pack", "value": "not_quite_a_doctor_pack" }
-
 					],
 				},
 				{
@@ -54,6 +55,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-lottery_packs2
 		{
 			name: 'send-lottery_packs2',
 			description: 'lottery_packs2',
@@ -67,7 +69,16 @@ const registerSlashCommands = async () => {
 					choices: [
 						{ "name": "unlockit", "value": "unlockit" },
 						{ "name": "moneymoneymoney!!!", "value": "moneymoneymoney!!!" },
-						{ "name": "lockitup", "value": "lockitup" }
+						{ "name": "lockitup", "value": "lockitup" },
+						{ "name": "franks-donator-lottopack", "value": "franks-donator-lottopack" },
+						{ "name": "killer-krixi-donator-lotto-pack", "value": "killer-krixi-donator-lotto-pack" },
+						{ "name": "mochi-donator-lotto-pack", "value": "mochi-donator-lotto-pack" },
+						{ "name": "mrlightsdarksidedonatorlottopack", "value": "mrlightsdarksidedonatorlottopack" },
+						{ "name": "nenmax-donator-lotto-pack", "value": "nenmax-donator-lotto-pack" },
+						{ "name": "plumbus-donator-lottopack", "value": "plumbus-donator-lottopack" },
+						{ "name": "rebelsfireintheskylottopack", "value": "rebelsfireintheskylottopack" },
+						{ "name": "shackpack-donator-lottopack", "value": "shackpack-donator-lottopack" },
+						{ "name": "toans-bigbrain-donator-lotto-pack", "value": "toans-bigbrain-donator-lotto-pack" },
 					],
 				},
 				{
@@ -78,6 +89,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-tools_packs
 		{
 			name: 'send-tools_packs',
 			description: 'tools_packs',
@@ -107,6 +119,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-materials_packs
 		{
 			name: 'send-materials_packs',
 			description: 'materials_packs',
@@ -130,6 +143,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-weapons_packs
 		{
 			name: 'send-weapons_packs',
 			description: 'weapons_packs',
@@ -164,7 +178,7 @@ const registerSlashCommands = async () => {
 					required: true,
 				},
 			],
-		},
+		},// send-vehicle_packs
 		{
 			name: 'send-vehicle_packs',
 			description: 'vehicle_packs',
@@ -190,6 +204,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-survivalgear_packs
 		{
 			name: 'send-survivalgear_packs',
 			description: 'survivalgear_packs',
@@ -221,6 +236,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-meds_packs
 		{
 			name: 'send-meds_packs',
 			description: 'meds_packs',
@@ -245,6 +261,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-food_packs
 		{
 			name: 'send-food_packs',
 			description: 'food_packs',
@@ -272,6 +289,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-daily_packs
 		{
 			name: 'send-daily_packs',
 			description: 'daily_packs',
@@ -299,6 +317,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-crafting-adminsonly
 		{
 			name: 'send-crafting-adminsonly',
 			description: 'send-crafting-adminsonly',
@@ -324,6 +343,7 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
+		// send-bigspender
 		{
 			name: 'send-bigspender',
 			description: 'send-bigspender',
@@ -344,6 +364,106 @@ const registerSlashCommands = async () => {
 					type: ApplicationCommandOptionType.String,
 					description: 'discordID',
 					required: true,
+				},
+			],
+		},
+		// send-vote_packs
+		{
+			name: 'send-vote_packs',
+			description: 'send-vote_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "10vote", "value": "10vote" },
+						{ "name": "30vote", "value": "30vote" },
+						{ "name": "60vote", "value": "60vote" },
+						{ "name": "150vote", "value": "150vote" },
+						{ "name": "100voteblack", "value": "100voteblack" },
+						{ "name": "100votebrown", "value": "100votebrown" },
+						{ "name": "100votegreen", "value": "100votegreen" },
+						{ "name": "100votepink", "value": "100votepink" },
+						{ "name": "100votewhite", "value": "100votewhite" },
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		// send-raid_packs
+		{
+			name: 'send-raid_packs',
+			description: 'send-raid_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "raidak74", "value": "raidak74" },
+						{ "name": "raidasval", "value": " raidasval" },
+						{ "name": "raidclothes", "value": "raidclothes" },
+						{ "name": "raidfirework", "value": "raidfirework" },
+						{ "name": "raidflag", "value": " raidflag" },
+						{ "name": "raidflarealarm", "value": "raidflarealarm" },
+						{ "name": "raidgoldlock", "value": "raidgoldlock" },
+						{ "name": "raidnvg", "value": "raidnvg" },
+						{ "name": "raidpulledpin", "value": "raidpulledpin" },
+						{ "name": "raidscrapbag", "value": "raidscrapbag" },
+						{ "name": "raidsilentalarm", "value": "raidsilentalarm" },
+						{ "name": "raidteargas", "value": "raidteargas" },
+						{ "name": "raidump", "value": "raidump" },
+						{ "name": "raidvest", "value": "raidvest" },
+						{ "name": "raidvss", "value": "raidvss" },
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'discordID',
+					required: true,
+				},
+			],
+		},
+		// send-admin_packs
+		{
+			name: 'send-admin_packs',
+			description: 'send-admin_packs',
+			options: [
+				{
+					name: 'packname',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "kitchensinkcleanup", "value": "kitchensinkcleanup" },
+						{ "name": "minesweeper", "value": "minesweeper" },
+					],
+				},
+				{
+					name: 'discord-id',
+					type: ApplicationCommandOptionType.String,
+					description: 'Select a Pack',
+					placeholder: 'Select a Pack',
+					required: true,
+					choices: [
+						{ "name": "bombthatbigmac", "value": "1064231188035809280" },
+						{ "name": "edCorps", "value": "401740966769459201" },
+						{ "name": "Rathnierre", "value": "202279773882417152" },
+						{ "name": "RELENTLESS665", "value": "368197808928456724" },
+						{ "name": "Stryker99", "value": "need id" },
+					],
 				},
 			],
 		},
