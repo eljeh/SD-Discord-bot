@@ -27,12 +27,15 @@ client.on(Events.ClientReady, () => {
     console.log(`${client.user.username} is online!`);
 });
 
+// Event handler for when an interaction is created
 client.on('interactionCreate', async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
+    // Handle the 'car-count' command
     if (interaction.commandName === 'car-count') {
         await interaction.reply('Please submit a list.');
 
+        // Create a message collector to wait for user input
         const filter = (message) => message.author.id === interaction.user.id;
         const collector = interaction.channel.createMessageCollector({
             filter,
@@ -40,7 +43,6 @@ client.on('interactionCreate', async (interaction) => {
         });
 
         collector.on('collect', async (message) => {
-
             if (message.attachments.size > 0) {
                 try {
                     message.channel.send('Reading the file! Fetching data...');
@@ -57,7 +59,6 @@ client.on('interactionCreate', async (interaction) => {
                     // Read and process the file content
                     const fileContent = await response.text();
                     carCount(fileContent, message);
-
                 } catch (error) {
                     console.error(error);
                 }
@@ -74,25 +75,41 @@ client.on('interactionCreate', async (interaction) => {
         });
     }
 
+    // Handle other specific commands
+    handleSpecificCommands(interaction);
+});
+
+// Event handler for when a message is created
+client.on(Events.MessageCreate, async (message) => {
+    // Respond to 'beep' and '!sendpack' messages
+    handleBeepAndSendPackMessages(message);
+});
+
+// Function to handle specific commands
+const handleSpecificCommands = async (interaction) => {
     const { options } = interaction;
 
-    if (
-        interaction.commandName === 'send-lottery_pack' ||
-        interaction.commandName === 'send-lottery_packs2' ||
-        interaction.commandName === 'send-tools_packs' ||
-        interaction.commandName === 'send-materials_packs' ||
-        interaction.commandName === 'send-weapons_packs' ||
-        interaction.commandName === 'send-vehicle_packs' ||
-        interaction.commandName === 'send-survivalgear_packs' ||
-        interaction.commandName === 'send-meds_packs' ||
-        interaction.commandName === 'send-food_packs' ||
-        interaction.commandName === 'send-daily_packs' ||
-        interaction.commandName === 'send-crafting-adminsonly' ||
-        interaction.commandName === 'send-bigspender' ||
-        interaction.commandName === 'send-raid_packs' ||
-        interaction.commandName === 'send-vote_packs' ||
-        interaction.commandName === 'send-admin_packs'
-    ) {
+    // Check for specific commands and extract options
+    const commandsWithOptions = [
+        'send-lottery_pack',
+        'send-lottery_packs2',
+        'send-tools_packs',
+        'send-materials_packs',
+        'send-weapons_packs',
+        'send-vehicle_packs',
+        'send-survivalgear_packs',
+        'send-meds_packs',
+        'send-food_packs',
+        'send-daily_packs',
+        'send-crafting-adminsonly',
+        'send-bigspender',
+        'send-raid_packs',
+        'send-vote_packs',
+        'send-admin_packs'
+    ];
+
+
+    if (commandsWithOptions.includes(interaction.commandName)) {
         const packName = options.getString('packname');
         const discordID = options.getString('discord-id');
 
@@ -115,12 +132,10 @@ client.on('interactionCreate', async (interaction) => {
             interaction.followUp(`Error: Channel #${channelName} not found.`);
         }
     }
+}
 
-})
-
-client.on(Events.MessageCreate, async (message) => {
-
-    // boop response
+// Function to handle 'beep' and '!sendpack' messages
+function handleBeepAndSendPackMessages(message) {
     if (message.content.toLowerCase() === 'beep') {
         // Reply with the initial message
         message.reply('boop');
@@ -129,9 +144,9 @@ client.on(Events.MessageCreate, async (message) => {
         // Reply with the initial message
         console.log('!sendpack sent');
     }
+}
 
-});
-
+// Function to count cars from input content
 async function carCount(content, interaction) {
     const inputString = content.trim();
     const bpcData = {};
