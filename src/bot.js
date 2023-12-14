@@ -33,7 +33,7 @@ client.on('interactionCreate', async (interaction) => {
 
     // Handle the 'car-count' command
     if (interaction.commandName === 'car-count') {
-        await interaction.reply('Please submit a list.');
+        await interaction.reply('Submit vehicle list');
 
         // Create a message collector to wait for user input
         const filter = (message) => message.author.id === interaction.user.id;
@@ -45,7 +45,7 @@ client.on('interactionCreate', async (interaction) => {
         collector.on('collect', async (message) => {
             if (message.attachments.size > 0) {
                 try {
-                    message.channel.send('Reading the file! Fetching data...');
+                    message.channel.send("Readin' da file! Fetchin' da data...");
 
                     // Fetch the content of the file
                     const url = message.attachments.first().url;
@@ -53,7 +53,7 @@ client.on('interactionCreate', async (interaction) => {
 
                     // Check if the fetch was successful
                     if (!response.ok) {
-                        return message.channel.send(`There was an error with fetching the file: ${response.statusText}`);
+                        return message.channel.send(`Shit! There was an error wif fetching da file: ${response.statusText}`);
                     }
 
                     // Read and process the file content
@@ -108,12 +108,22 @@ const handleSpecificCommands = async (interaction) => {
         'send-admin_packs'
     ];
 
-
+    // Check if the command with options includes the current commandName
     if (commandsWithOptions.includes(interaction.commandName)) {
+        // Retrieve the 'packname' and 'discord-id' options from the interaction
         const packName = options.getString('packname');
         const discordID = options.getString('discord-id');
+        // Initialize a variable to check if the user has a role (default to false)
+        let hasRole = false;
 
-        console.log(`!sendpack ${packName} ${discordID}`);
+        // Check if the user with the specified discordID exists in the client's cache
+        hasRole = !!client.users.cache.get(discordID);
+
+        // Determine the username based on whether the user has a role
+        const username = hasRole ? user.username : 'Unknown User';
+
+        // Log information about the command and its parameters
+        console.log(`!sendpack ${packName} ${discordID} to ${username}`);
 
         // Ensure that the interaction is replied or deferred
         if (!interaction.deferred && !interaction.replied) {
@@ -122,27 +132,25 @@ const handleSpecificCommands = async (interaction) => {
 
         // Check if the channel name is 'outhouse'
         const channelName = process.env.CHANNEL_NAME;
+        // Find the 'outhouse' channel in the guild's channels cache
         const outhouseChannel = interaction.guild.channels.cache.find((channel) => channel.name === channelName);
 
         if (outhouseChannel) {
             // Send the message to the 'outhouse' channel
-            outhouseChannel.send(`!sendpack ${packName} ${discordID}`);
-            interaction.followUp('Message sent to #outhouse channel.');
+            outhouseChannel.send(`!sendpack ${packName} ${discordID} to ${username}`);
+            interaction.followUp(`Message sent to #${channelName} channel.`);
         } else {
+            // Notify if the 'outhouse' channel is not found
             interaction.followUp(`Error: Channel #${channelName} not found.`);
         }
     }
 }
 
-// Function to handle 'beep' and '!sendpack' messages
+// Function to handle 'beep' messages
 function handleBeepAndSendPackMessages(message) {
     if (message.content.toLowerCase() === 'beep') {
         // Reply with the initial message
         message.reply('boop');
-    }
-    if (message.content.toLowerCase() === '!sendpack') {
-        // Reply with the initial message
-        console.log('!sendpack sent');
     }
 }
 

@@ -317,32 +317,6 @@ const registerSlashCommands = async () => {
 				},
 			],
 		},
-		// send-crafting-adminsonly
-		{
-			name: 'send-crafting-adminsonly',
-			description: 'send-crafting-adminsonly',
-			options: [
-				{
-					name: 'packname',
-					type: ApplicationCommandOptionType.String,
-					description: 'Select a Pack',
-					placeholder: 'Select a Pack',
-					required: true,
-					choices: [
-						{ "name": "basiclock", "value": "basiclock" },
-						{ "name": "welcomepack_copy", "value": "welcomepack_copy" },
-						{ "name": "welcomepack", "value": "welcomepack" },
-						{ "name": "bed", "value": "bed" }
-					],
-				},
-				{
-					name: 'discord-id',
-					type: ApplicationCommandOptionType.String,
-					description: 'discordID',
-					required: true,
-				},
-			],
-		},
 		// send-bigspender
 		{
 			name: 'send-bigspender',
@@ -447,6 +421,10 @@ const registerSlashCommands = async () => {
 					placeholder: 'Select a Pack',
 					required: true,
 					choices: [
+						{ "name": "basiclock", "value": "basiclock" },
+						{ "name": "welcomepack_copy", "value": "welcomepack_copy" },
+						{ "name": "welcomepack", "value": "welcomepack" },
+						{ "name": "bed", "value": "bed" },
 						{ "name": "kitchensinkcleanup", "value": "kitchensinkcleanup" },
 						{ "name": "minesweeper", "value": "minesweeper" },
 					],
