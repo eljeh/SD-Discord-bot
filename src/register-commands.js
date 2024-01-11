@@ -79,6 +79,9 @@ const registerSlashCommands = async () => {
 						{ "name": "rebelsfireintheskylottopack", "value": "rebelsfireintheskylottopack" },
 						{ "name": "shackpack-donator-lottopack", "value": "shackpack-donator-lottopack" },
 						{ "name": "toans-bigbrain-donator-lotto-pack", "value": "toans-bigbrain-donator-lotto-pack" },
+						{ "name": "alxndrs-donator-hobo-lotto-pack", "value": "alxndrs-donator-hobo-lotto-pack" },
+						{ "name": "edcorps-lottopack", "value": "edcorps-lottopack" },
+						{ "name": "jax-stoner-snak-lotto-pak", "value": "jax-stoner-snak-lotto-pak" },
 					],
 				},
 				{
