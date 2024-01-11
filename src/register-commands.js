@@ -3,7 +3,7 @@ import { REST, Routes, ApplicationCommandOptionType } from 'discord.js';
 
 const registerSlashCommands = async () => {
 	const commands = [
-		//car-count
+		// car-count
 		{
 			name: 'car-count',
 			description: 'Input the vehicle list copy from the game, returns the count of each vehicle type',
@@ -190,6 +190,7 @@ const registerSlashCommands = async () => {
 					placeholder: 'Select a Pack',
 					required: true,
 					choices: [
+						{ "name": "truckcash", "value": "truckcash" },
 						{ "name": "carcash", "value": "carcash" },
 						{ "name": "bikecash", "value": "bikecash" },
 						{ "name": "bicyclecash", "value": "bicyclecash" },

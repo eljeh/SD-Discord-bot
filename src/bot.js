@@ -132,8 +132,9 @@ const handleSpecificCommands = async (interaction) => {
 
         // Check if the channel name is 'outhouse'
         const channelName = process.env.CHANNEL_NAME;
+        const channelID = process.env.CHANNEL_ID;
         // Find the 'outhouse' channel in the guild's channels cache
-        const outhouseChannel = interaction.guild.channels.cache.find((channel) => channel.name === channelName);
+        const outhouseChannel = interaction.guild.channels.cache.find((channel) => channel.id === channelID);
 
         if (outhouseChannel) {
             // Send the message to the 'outhouse' channel
