@@ -6,7 +6,7 @@ const registerSlashCommands = async () => {
 		// car-count
 		{
 			name: 'car-count',
-			description: 'Input the vehicle list copy from the game, returns the count of each vehicle type',
+			description: 'Input the vehicle list copied from the game; returns the count of each vehicle type',
 		},
 		// send-lottery_pack
 		{

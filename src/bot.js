@@ -134,7 +134,7 @@ const handleSpecificCommands = async (interaction) => {
         const channelName = process.env.CHANNEL_NAME;
         const channelID = process.env.CHANNEL_ID;
         // Find the 'outhouse' channel in the guild's channels cache
-        const outhouseChannel = interaction.guild.channels.cache.find((channel) => channel.id === channelID);
+        const outhouseChannel = interaction.guild.channels.cache.find((channel) => channel.name === channelName);
 
         if (outhouseChannel) {
             // Send the message to the 'outhouse' channel
@@ -142,7 +142,7 @@ const handleSpecificCommands = async (interaction) => {
             interaction.followUp(`Message sent to #${channelName} channel.`);
         } else {
             // Notify if the 'outhouse' channel is not found
-            interaction.followUp(`Error: Channel #${channelName} not found.`);
+            interaction.followUp(`Error: Channel #${channelName}-${channelID} not found.`);
         }
     }
 }
