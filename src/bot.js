@@ -142,7 +142,7 @@ const handleSpecificCommands = async (interaction) => {
             interaction.followUp(`Message sent to #${channelName} channel.`);
         } else {
             // Notify if the 'outhouse' channel is not found
-            interaction.followUp(`Error: Channel #${channelName}-${channelID} not found.`);
+            interaction.followUp(`Error: Channel #${channelName} - ${channelID} not found.`);
         }
     }
 }
