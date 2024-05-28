@@ -45,7 +45,7 @@ client.on('interactionCreate', async (interaction) => {
         collector.on('collect', async (message) => {
             if (message.attachments.size > 0) {
                 try {
-                    message.channel.send("Readin' da file! Fetchin' da data...");
+                    message.channel.send("Readin da file! Fetchin da data...");
 
                     // Fetch the content of the file
                     const url = message.attachments.first().url;
