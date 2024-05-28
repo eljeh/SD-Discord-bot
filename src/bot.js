@@ -53,7 +53,7 @@ client.on('interactionCreate', async (interaction) => {
 
                     // Check if the fetch was successful
                     if (!response.ok) {
-                        return message.channel.send(`Shit! There was an error wif fetching da file: ${response.statusText}`);
+                        return message.channel.send(`Shit! Dare was an error wif fetching da file: ${response.statusText}`);
                     }
 
                     // Read and process the file content
