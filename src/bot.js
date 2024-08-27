@@ -270,17 +270,13 @@ const response = await fetch(`https://api.whalleybot.com/bot/7ac35e92/GetPlayer/
     },
 });
 
-
-console.log('response: ' + response)
-
+const steamID = response.steamID;
 
 client.on(Events.InteractionCreate, async (interaction) => {
     if (!interaction.isButton()) return;
     console.log('discordID: ' + interaction.user)
 
-    //const playerID = '76561198187036603';
-
-
+    const playerID = steamID';
 
     if (['NorthTower', 'SouthTower'].includes(interaction.customId)) {
         const coordinates = {
