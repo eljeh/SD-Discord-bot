@@ -26,7 +26,7 @@ const client = new Client({
 });
 
 // Log in to Discord using the provided BOT_TOKEN
-client.login('MTE4MjM0MzE3Njg1NDQ1NDM4Mg.GaIP-a.lVlpb2DBN6vj9uGYgpaWFB512f4_dZSPnKDBXI');//process.env.BOT_TOKEN
+
 
 // Event handler for when the bot is ready
 client.on(Events.ClientReady, () => {
